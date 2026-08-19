@@ -24,50 +24,49 @@ public class Main {
         jobs.add(job6);
         jobs.add(job7);
 
+        String valg = "";
+        switch (valg){
+            case "1":
+                {
+                    printAllJobs(jobs);
+                    break;
+                }
 
+            case "2":
+                {
+                    printJavaJobs(jobs);
+                    break;
+                }
+
+            case "3":
+            {
+                printRelevantJobs(jobs);
+                break;
+            }
+
+            case "4":
+            {
+                //printJobsByLocation(jobs);
+                break;
+            }
+
+            case "5":
+            {
+                printJavaJobs(jobs);
+                break;
+            }
+        }
 
     }
 
     public static void printMenu(){
-        System.out.println ("1. Vis alle jobber \n" +
-                            "2. Vis Java-jobber \n" +
-                            "3. Vis Junior/nyutdannet Java-jobber som ikke er søkt \n" +
-                            "4. Vis jobber etter sted \n" +
-                            "5. Vis ikke-søkte jobber \n");
-    }
-
-    public static void printAllJobs(List<JobListing> jobs){
-        for (JobListing job : jobs){
-            System.out.println(job);
-        }
-    }
-
-    public static void printJavaJobs(List<JobListing> jobs){
-        for (JobListing job : jobs){
-            if (hasJava(job)){
-                System.out.println(job);
-            }
-        }
-    }
-
-    public static void printRelevantJobs(List<JobListing> jobs){
-        for (JobListing job : jobs){
-            if (isJuniorGraduate(job) && hasJava(job) && isNotApplied(job)){
-                System.out.println(job);
-            }
-        }
-    }
-
-    public static void printJobsByLocation(List<JobListing> jobs, String location){
-        for (JobListing job : jobs){
-            if (job.getLocation().equals(location)){
-                System.out.println(job);
-            }
-        }
-    }
-
-    public static void handleMenuChoice(){
-
+        System.out.println ("""
+                1. Vis alle jobber\s
+                2. Vis Java-jobber\s
+                3. Vis Junior/nyutdannet Java-jobber som ikke er søkt\s
+                4. Vis jobber etter sted\s
+                5. Vis ikke-søkte jobber\s
+                """);
     }
 
     public static boolean isJuniorGraduate(JobListing job) {
@@ -108,6 +107,14 @@ public class Main {
         for (JobListing job : jobs){
             if (job.getLocation().equals(location)){
                 System.out.println(job);
+            }
+        }
+    }
+
+    public static void printNotApplied(List<JobListing> jobs){
+        for (JobListing job : jobs){
+            if (job != isNotApplied(job)){
+
             }
         }
     }
