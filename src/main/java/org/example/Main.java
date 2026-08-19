@@ -113,8 +113,8 @@ public class Main {
 
     public static void printNotApplied(List<JobListing> jobs){
         for (JobListing job : jobs){
-            if (job != isNotApplied(job)){
-
+            if (isNotApplied(job)){
+                System.out.println(job);
             }
         }
     }
