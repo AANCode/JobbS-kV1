@@ -24,8 +24,35 @@ public class Main {
         jobs.add(job6);
         jobs.add(job7);
 
-        for (JobListing job : jobs) {
-            if (isJuniorGraduate(job) && hasJava(job) && isNotApplied(job)) {
+
+
+    }
+
+    public static void printMenu(){
+        System.out.println ("1. Vis alle jobber \n" +
+                            "2. Vis Java-jobber \n" +
+                            "3. Vis Junior/nyutdannet Java-jobber som ikke er søkt \n" +
+                            "4. Vis jobber etter sted \n" +
+                            "5. Vis ikke-søkte jobber \n");
+    }
+
+    public static void printAllJobs(List<JobListing> jobs){
+        for (JobListing job : jobs){
+            System.out.println(job);
+        }
+    }
+
+    public static void printJavaJobs(List<JobListing> jobs){
+        for (JobListing job : jobs){
+            if (hasJava(job)){
+                System.out.println(job);
+            }
+        }
+    }
+
+    public static void printRelevantJobs(List<JobListing> jobs){
+        for (JobListing job : jobs){
+            if (isJuniorGraduate(job) && hasJava(job) && isNotApplied(job)){
                 System.out.println(job);
             }
         }
