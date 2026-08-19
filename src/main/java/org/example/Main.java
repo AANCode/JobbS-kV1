@@ -31,6 +31,18 @@ public class Main {
         }
     }
 
+    public static void printJobsByLocation(List<JobListing> jobs, String location){
+        for (JobListing job : jobs){
+            if (job.getLocation().equals(location)){
+                System.out.println(job);
+            }
+        }
+    }
+
+    public static void handleMenuChoice(){
+
+    }
+
     public static boolean isJuniorGraduate(JobListing job) {
         return job.getTitle().contains("Junior") || job.getTitle().contains("Nyutdannet");
     }
