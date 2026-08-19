@@ -81,4 +81,38 @@ public class Main {
     public static boolean isNotApplied(JobListing job) {
         return job.getStatus().equals("Ikke søkt");
     }
+
+    public static void printAllJobs(List<JobListing> jobs){
+        for (JobListing job : jobs){
+            System.out.println(job);
+        }
+    }
+
+    public static void printJavaJobs(List<JobListing> jobs){
+        for (JobListing job : jobs){
+            if (hasJava(job)){
+                System.out.println(job);
+            }
+        }
+    }
+
+    public static void printRelevantJobs(List<JobListing> jobs){
+        for (JobListing job : jobs){
+            if (isJuniorGraduate(job) && hasJava(job) && isNotApplied(job)){
+                System.out.println(job);
+            }
+        }
+    }
+
+    public static void printJobsByLocation(List<JobListing> jobs, String location){
+        for (JobListing job : jobs){
+            if (job.getLocation().equals(location)){
+                System.out.println(job);
+            }
+        }
+    }
+
+    public static void handleMenuChoice(){
+
+    }
 }
