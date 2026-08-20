@@ -2,6 +2,7 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -24,39 +25,41 @@ public class Main {
         jobs.add(job6);
         jobs.add(job7);
 
-        String valg = "";
-        switch (valg){
-            case "1":
-                {
+        Scanner scanner = new Scanner(System.in);
+
+        int valg = -1;
+        while (valg != 0) {
+            printMenu();
+            valg = Integer.parseInt(scanner.nextLine());
+
+            switch (valg) {
+                case 1: {
                     printAllJobs(jobs);
                     break;
                 }
 
-            case "2":
-                {
+                case 2: {
                     printJavaJobs(jobs);
                     break;
                 }
 
-            case "3":
-            {
-                printRelevantJobs(jobs);
-                break;
+                case 3: {
+                    printRelevantJobs(jobs);
+                    break;
+                }
+
+                case 4: {
+                    //printJobsByLocation(jobs);
+                    break;
+                }
+
+                case 5: {
+                    printNotApplied(jobs);
+                    break;
+                }
             }
 
-            case "4":
-            {
-                //printJobsByLocation(jobs);
-                break;
-            }
-
-            case "5":
-            {
-                printJavaJobs(jobs);
-                break;
-            }
         }
-
     }
 
     public static void printMenu(){
