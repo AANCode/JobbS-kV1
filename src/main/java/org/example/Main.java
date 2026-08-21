@@ -26,13 +26,18 @@ public class Main {
         jobs.add(job7);
 
         Scanner scanner = new Scanner(System.in);
-
         int valg = -1;
+
         while (valg != 0) {
             printMenu();
             valg = Integer.parseInt(scanner.nextLine());
 
             switch (valg) {
+                case 0: {
+                    System.out.println("Avslutter...");
+                    break;
+                }
+
                 case 1: {
                     printAllJobs(jobs);
                     break;
@@ -49,13 +54,19 @@ public class Main {
                 }
 
                 case 4: {
-                    //printJobsByLocation(jobs);
+                    System.out.println("Hvilket sted vildu søke");
+                    String location = scanner.nextLine();
+
+                    printJobsByLocation(jobs,location);
                     break;
                 }
 
                 case 5: {
                     printNotApplied(jobs);
                     break;
+                }
+                default:{
+                    System.out.println("Ugyldig valg!");
                 }
             }
 
@@ -69,6 +80,7 @@ public class Main {
                 3. Vis Junior/nyutdannet Java-jobber som ikke er søkt\s
                 4. Vis jobber etter sted\s
                 5. Vis ikke-søkte jobber\s
+                0. Avslutt\s
                 """);
     }
 
