@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -65,6 +66,12 @@ public class Main {
                     printNotApplied(jobs);
                     break;
                 }
+
+                case 6: {
+                    addJob(jobs, scanner);
+                    break;
+                }
+
                 default:{
                     System.out.println("Ugyldig valg!");
                 }
@@ -80,6 +87,7 @@ public class Main {
                 3. Vis Junior/nyutdannet Java-jobber som ikke er søkt\s
                 4. Vis jobber etter sted\s
                 5. Vis ikke-søkte jobber\s
+                5. Legg til ny jobb\s
                 0. Avslutt\s
                 """);
     }
@@ -134,7 +142,29 @@ public class Main {
         }
     }
 
-    public static void handleMenuChoice(){
+    public static void addJob(List<JobListing> jobs, Scanner scanner){
+        System.out.println("Hva er titlen til jobben?");
+        String title = scanner.nextLine();
+
+        System.out.println("Hva er navnet til selskap til jobben?");
+        String company = scanner.nextLine();
+
+        System.out.println("hvor er det det jobben er?");
+        String location = scanner.nextLine();
+
+        System.out.println("Hvilke er Teknologier kan du?");
+        String techInput = scanner.nextLine();
+        List<String> technologies = Arrays.asList(techInput.split(","));
+
+        System.out.println("Hva er url til jobben?");
+        String url = scanner.nextLine();
+
+        System.out.println("Hva er statusen til jobben?");
+        String status = scanner.nextLine();
+
+        JobListing newJob = new JobListing(title,company,location,technologies,url,status);
+        jobs.add(newJob);
+        System.out.println("jobben har blitt lagt til");
 
     }
 }
