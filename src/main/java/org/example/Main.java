@@ -2,7 +2,6 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -25,52 +24,39 @@ public class Main {
         jobs.add(job6);
         jobs.add(job7);
 
-        Scanner scanner = new Scanner(System.in);
-        int valg = -1;
-
-        while (valg != 0) {
-            printMenu();
-            valg = Integer.parseInt(scanner.nextLine());
-
-            switch (valg) {
-                case 0: {
-                    System.out.println("Avslutter...");
-                    break;
-                }
-
-                case 1: {
+        String valg = "";
+        switch (valg){
+            case "1":
+                {
                     printAllJobs(jobs);
                     break;
                 }
 
-                case 2: {
+            case "2":
+                {
                     printJavaJobs(jobs);
                     break;
                 }
 
-                case 3: {
-                    printRelevantJobs(jobs);
-                    break;
-                }
-
-                case 4: {
-                    System.out.println("Hvilket sted vildu søke");
-                    String location = scanner.nextLine();
-
-                    printJobsByLocation(jobs,location);
-                    break;
-                }
-
-                case 5: {
-                    printNotApplied(jobs);
-                    break;
-                }
-                default:{
-                    System.out.println("Ugyldig valg!");
-                }
+            case "3":
+            {
+                printRelevantJobs(jobs);
+                break;
             }
 
+            case "4":
+            {
+                //printJobsByLocation(jobs);
+                break;
+            }
+
+            case "5":
+            {
+                printJavaJobs(jobs);
+                break;
+            }
         }
+
     }
 
     public static void printMenu(){
@@ -80,7 +66,6 @@ public class Main {
                 3. Vis Junior/nyutdannet Java-jobber som ikke er søkt\s
                 4. Vis jobber etter sted\s
                 5. Vis ikke-søkte jobber\s
-                0. Avslutt\s
                 """);
     }
 
